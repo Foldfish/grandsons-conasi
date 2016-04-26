@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @demo_staff_member.name %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @demo_staff_member.phone %>
+</p>
+
+<p>
+  <strong>Rfc:</strong>
+  <%= @demo_staff_member.RFC %>
+</p>
+
+<p>
+  <strong>Curp:</strong>
+  <%= @demo_staff_member.CURP %>
+</p>
+
+<p>
+  <strong>Nss:</strong>
+  <%= @demo_staff_member.NSS %>
+</p>
+
+<%= link_to 'Edit', edit_demo_staff_member_path(@demo_staff_member) %> |
+<%= link_to 'Back', demo_staff_members_path %>

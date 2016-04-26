@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  demo_staff_member_id: 1
+  start_of_week: 2016-04-23
+  monday_store: 1
+  tuesday_store: 1
+  wednesday_store: 1
+  thursday_store: 1
+  friday__store: 1
+  saturday_store: 1
+  sunday_store: 1
+
+two:
+  demo_staff_member_id: 1
+  start_of_week: 2016-04-23
+  monday_store: 1
+  tuesday_store: 1
+  wednesday_store: 1
+  thursday_store: 1
+  friday__store: 1
+  saturday_store: 1
+  sunday_store: 1

@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Demo staff member:</strong>
+  <%= @attendance_record.demo_staff_member_id %>
+</p>
+
+<p>
+  <strong>Start of week:</strong>
+  <%= @attendance_record.start_of_week %>
+</p>
+
+<p>
+  <strong>Monday store:</strong>
+  <%= @attendance_record.monday_store %>
+</p>
+
+<p>
+  <strong>Tuesday store:</strong>
+  <%= @attendance_record.tuesday_store %>
+</p>
+
+<p>
+  <strong>Wednesday store:</strong>
+  <%= @attendance_record.wednesday_store %>
+</p>
+
+<p>
+  <strong>Thursday store:</strong>
+  <%= @attendance_record.thursday_store %>
+</p>
+
+<p>
+  <strong>Friday  store:</strong>
+  <%= @attendance_record.friday__store %>
+</p>
+
+<p>
+  <strong>Saturday store:</strong>
+  <%= @attendance_record.saturday_store %>
+</p>
+
+<p>
+  <strong>Sunday store:</strong>
+  <%= @attendance_record.sunday_store %>
+</p>
+
+<%= link_to 'Edit', edit_attendance_record_path(@attendance_record) %> |
+<%= link_to 'Back', attendance_records_path %>

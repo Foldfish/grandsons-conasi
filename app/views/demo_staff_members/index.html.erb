@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Demo Staff Members</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Phone</th>
+      <th>Rfc</th>
+      <th>Curp</th>
+      <th>Nss</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @demo_staff_members.each do |demo_staff_member| %>
+      <tr>
+        <td><%= demo_staff_member.name %></td>
+        <td><%= demo_staff_member.phone %></td>
+        <td><%= demo_staff_member.RFC %></td>
+        <td><%= demo_staff_member.CURP %></td>
+        <td><%= demo_staff_member.NSS %></td>
+        <td><%= link_to 'Show', demo_staff_member %></td>
+        <td><%= link_to 'Edit', edit_demo_staff_member_path(demo_staff_member) %></td>
+        <td><%= link_to 'Destroy', demo_staff_member, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Demo staff member', new_demo_staff_member_path %>

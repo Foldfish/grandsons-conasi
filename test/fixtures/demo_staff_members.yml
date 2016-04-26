@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  phone: MyString
+  RFC: MyString
+  CURP: MyString
+  NSS: MyString
+
+two:
+  name: MyString
+  phone: MyString
+  RFC: MyString
+  CURP: MyString
+  NSS: MyString

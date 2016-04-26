@@ -1,0 +1,53 @@
+<%= form_for(@attendance_record) do |f| %>
+  <% if @attendance_record.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@attendance_record.errors.count, "error") %> prohibited this attendance_record from being saved:</h2>
+
+      <ul>
+      <% @attendance_record.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :demo_staff_member_id %><br>
+    <%= f.number_field :demo_staff_member_id %>
+  </div>
+  <div class="field">
+    <%= f.label :start_of_week %><br>
+    <%= f.date_select :start_of_week %>
+  </div>
+  <div class="field">
+    <%= f.label :monday_store %><br>
+    <%= f.number_field :monday_store %>
+  </div>
+  <div class="field">
+    <%= f.label :tuesday_store %><br>
+    <%= f.number_field :tuesday_store %>
+  </div>
+  <div class="field">
+    <%= f.label :wednesday_store %><br>
+    <%= f.number_field :wednesday_store %>
+  </div>
+  <div class="field">
+    <%= f.label :thursday_store %><br>
+    <%= f.number_field :thursday_store %>
+  </div>
+  <div class="field">
+    <%= f.label :friday__store %><br>
+    <%= f.number_field :friday__store %>
+  </div>
+  <div class="field">
+    <%= f.label :saturday_store %><br>
+    <%= f.number_field :saturday_store %>
+  </div>
+  <div class="field">
+    <%= f.label :sunday_store %><br>
+    <%= f.number_field :sunday_store %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

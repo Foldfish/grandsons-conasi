@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Attendance Records</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Demo staff member</th>
+      <th>Start of week</th>
+      <th>Monday store</th>
+      <th>Tuesday store</th>
+      <th>Wednesday store</th>
+      <th>Thursday store</th>
+      <th>Friday  store</th>
+      <th>Saturday store</th>
+      <th>Sunday store</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @attendance_records.each do |attendance_record| %>
+      <tr>
+        <td><%= attendance_record.demo_staff_member_id %></td>
+        <td><%= attendance_record.start_of_week %></td>
+        <td><%= attendance_record.monday_store %></td>
+        <td><%= attendance_record.tuesday_store %></td>
+        <td><%= attendance_record.wednesday_store %></td>
+        <td><%= attendance_record.thursday_store %></td>
+        <td><%= attendance_record.friday__store %></td>
+        <td><%= attendance_record.saturday_store %></td>
+        <td><%= attendance_record.sunday_store %></td>
+        <td><%= link_to 'Show', attendance_record %></td>
+        <td><%= link_to 'Edit', edit_attendance_record_path(attendance_record) %></td>
+        <td><%= link_to 'Destroy', attendance_record, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Attendance record', new_attendance_record_path %>

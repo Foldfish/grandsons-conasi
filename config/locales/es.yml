@@ -1,0 +1,423 @@
+es:
+  admin:
+    js:
+      true: Verdadero
+      false: Falso
+      is_present: Está presente
+      is_blank: Está en blanco
+      date: Fecha ...
+      between_and_: Entre ... y ...
+      today: Hoy
+      yesterday: Ayer
+      this_week: Esta semana
+      last_week: La semana pasada
+      number: Número ...
+      contains: Contiene
+      is_exactly: Es exactamente
+      starts_with: Comienza con
+      ends_with: Termina con
+    loading: "Cargando..."
+    home:
+      name: "Inicio"
+    pagination:
+      previous: "&laquo; Prev"
+      next: "Sig &raquo;"
+      truncate: "…"
+    misc:
+      filter_date_format: "dd/mm/yy" # a combination of 'dd', 'mm' and 'yy' with any delimiter. No other interpolation will be done!
+      search: "Búsqueda"
+      filter: "Filtro"
+      refresh: "Actualizar"
+      show_all: "Mostrar todo"
+      add_filter: "Agregar filtro"
+      bulk_menu_title: "Elementos seleccionados"
+      remove: "Remover"
+      add_new: "Agregar nuevo(a)"
+      chosen: "Seleccionado %{name}"
+      chose_all: "Seleccionar todo"
+      clear_all: "Deseleccionar todo"
+      up: "Arriba"
+      down: "Abajo"
+      navigation: "Navegación"
+      navigation_static_label: "Enlaces"
+      log_out: "Salir"
+      ago: ""
+    flash:
+      successful: "%{name} exitosamente %{action}"
+      error: "%{name} falló al tratar de ser %{action}"
+      noaction: "No se realizó acción alguna"
+      model_not_found: "El modelo '%{model}' no pudo encontrarse"
+      object_not_found: "%{model} con el id '%{id}' no pudo encontrarse"
+    table_headers:
+      model_name: "Nombre de la tabla o modelo"
+      last_used: "Último cambio"
+      records: "Registros"
+      username: "Usuario"
+      changes: "Cambios"
+      created_at: "Fecha/Hora"
+      item: "Elemento"
+      message: "Mensaje"
+    actions:
+      dashboard:
+        title: "Administración del sitio"
+        menu: "Panel de administrador"
+        breadcrumb: "Panel de administrador"
+      index:
+        title: "Lista de %{model_label_plural}"
+        menu: "Lista"
+        breadcrumb: "%{model_label_plural}"
+      show:
+        title: "Detalles para %{model_label} '%{object_label}'"
+        menu: "Mostrar"
+        breadcrumb: "%{object_label}"
+      show_in_app:
+        menu: "Mostrar en la aplicación"
+      new:
+        title: "Crear %{model_label}"
+        menu: "Agregar nuevo(a)"
+        breadcrumb: "Nuevo(a)"
+        link: "Agregar %{model_label}"
+        done: "creado(a)"
+      edit:
+        title: "Editar %{model_label} '%{object_label}'"
+        menu: "Editar"
+        breadcrumb: "Editar"
+        link: "Editar %{model_label}"
+        done: "actializado(a)"
+      delete:
+        title: "Borrar %{model_label} '%{object_label}'"
+        menu: "Borrar"
+        breadcrumb: "Borrar"
+        link: "Borrar '%{object_label}'"
+        done: "borrado(a)"
+      bulk_delete:
+        title: "Borrar %{model_label_plural}"
+        menu: "Borrado múltiple"
+        breadcrumb: "Borrado múltiple"
+        bulk_link: "Borrar %{model_label_plural} seleccionados(as)"
+      export:
+        title: "Exportar %{model_label_plural}"
+        menu: "Exportar"
+        breadcrumb: "Exportar"
+        link: "Exportar los(as) %{model_label_plural} encontrados(as)"
+        bulk_link: "Exportar los(as) %{model_label_plural} encontrados(as)"
+        done: "exportados(as)"
+      history_index:
+        title: "Historial de %{model_label_plural}"
+        menu: "Historial"
+        breadcrumb: "Historial"
+      history_show:
+        title: "Historial de %{model_label} '%{object_label}'"
+        menu: "Historial"
+        breadcrumb: "Historial"
+    form:
+      cancel: "Cancelar"
+      basic_info: "Información básica"
+      required: "Requerido"
+      optional: "Opcional"
+      one_char: "caracter"
+      char_length_up_to: "longitud hasta de"
+      char_length_of: "longitud de"
+      save: "Guardar"
+      save_and_add_another: "Guardar y agregar otro(a)"
+      save_and_edit: "Guardar y editar"
+      all_of_the_following_related_items_will_be_deleted: "? Los siguientes elementos relacionados podrían ser borrados u desasociados:"
+      are_you_sure_you_want_to_delete_the_object: "Está seguro(a) de querer borrar este(a) %{model_name}"
+      confirmation: "Sí, estoy seguro"
+      bulk_delete: "Los siguientes objetos serán borrados, lo cual podría borrar u desasociar algunas de sus dependencias:"
+      new_model: "%{name} (nuevo/a)"
+    export:
+      confirmation: "Exportar a %{name}"
+      select: "Seleccionar campos a exportar"
+      select_all_fields: "Seleccionar todos los campos"
+      fields_from: "Campos de %{name}"
+      fields_from_associated: "Campos de %{name} asociado(a)"
+      display: "Mostrar %{name}: %{type}"
+      options_for: "Opciones para %{name}"
+      empty_value_for_associated_objects: "<vacío>"
+      click_to_reverse_selection: 'Hacer click para deshacer selección'
+      csv:
+        header_for_root_methods: "%{name}" # 'model' is available
+        header_for_association_methods: "%{name} [%{association}]"
+        encoding_to: "Codificar con"
+        encoding_to_help: "Escoger codificación destino. Dejar vacío para dejar sin cambios la codificación actual: (%{name})"
+        skip_header: "Sin encabezado"
+        skip_header_help: "No escribir encabezado (sin descrpción de los campos)"
+        default_col_sep: ","
+        col_sep: "Separador de columnas"
+        col_sep_help: "Dejar en blanco por defecto ('%{value}')" # value is default_col_sep
+
+
+  activerecord:
+    models:
+      attendance_record: "Registros de asistencia"
+      attendance_records: "Registros de asistencia"
+      chain: "Cadenas"
+      chains: "Cadenas"
+      customer: "Clientes"
+      customers: "Clientes"
+      demo_staff_member: "Demostradores(as)"
+      demo_staff_members: "Demostradores(as)"
+      store: "Tiendas"
+      stores: "Tiendas"
+      supervisor: "Supervisores"
+      supervisors: "Supervisores"
+      role: "Roles"
+      roles: "Roles"
+      user: "Usuarios"
+      users: "Usuarios"
+    attributes:
+      attendance_record:
+        demo_staff_member: "Demostrador(a)"
+        start_of_week: "Inicio de semana"
+        monday_store: "Tienda del lunes"
+        tuesday_store: "Tienda del martes"
+        wednesday_store: "Tienda del miércoles"
+        thursday_store: "Tienda del jueves"
+        friday_store: "Tienda del viernes"
+        saturday_store: "Tienda del sábado"
+        sunday_store: "Tienda del domingo"
+      chain:
+        name: "Nombre"
+      customer:
+        name: "Nombre"
+      demo_staff_member:
+        name: "Nombre"
+        phone: "Teléfono"
+        RFC: "RFC"
+        CURP: "CURP"
+        NSS: "Número del seguridad social"
+      store:
+        name: "Nombre"
+        address: "Dirección"
+        chain: "Cadena a la que pertenece"
+      supervisor:
+        name: "Nombre"
+        phone: "Teléfono"
+        RFC: "RFC"
+      role:
+        name: "Nombre"
+        users: "Usuarios"
+        created_at: "Creado el"
+        updated_at: "Actualizado el"
+      user:
+        email: "Correo electrónico"
+        password: "Contraseña"
+        password_confirmation: "Confirmar contraseña"
+        encrypted_password: "Contraseña encriptada"
+        reset_password_token: "Token para reiniciar contraseña"
+        reset_password_sent_at: "Instrucciones para reiniciar contraseña enviadas a"
+        remember_created_at: "Recordatorio creado el"
+        sign_in_count: "Conteo de ingresos"
+        current_sign_in_at: "Ingreso actual iniciado el"
+        last_sign_in_at: "Último ingreso el"
+        current_sign_in_ip: "Dirección IP de ingreso actual"
+        last_sign_in_ip: "Dirección IP de último ingreso"
+        roles: "Roles"
+        created_at: "Creado el"
+        updated_at: "Actualizado el"
+
+
+  date:
+    abbr_day_names:
+    - dom
+    - lun
+    - mar
+    - mié
+    - jue
+    - vie
+    - sáb
+    abbr_month_names:
+    - 
+    - ene
+    - feb
+    - mar
+    - abr
+    - may
+    - jun
+    - jul
+    - ago
+    - sep
+    - oct
+    - nov
+    - dic
+    day_names:
+    - domingo
+    - lunes
+    - martes
+    - miércoles
+    - jueves
+    - viernes
+    - sábado
+    formats:
+      default: "%d/%m/%Y"
+      long: "%A, %B %d, %Y"
+      short: "%b %d"
+    month_names:
+    - 
+    - enero
+    - febrero
+    - marzo
+    - abril
+    - mayo
+    - junio
+    - julio
+    - agosto
+    - septiembre
+    - octubre
+    - noviembre
+    - diciembre
+    order:
+    - :day
+    - :month
+    - :year
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: cerca de 1 hora
+        other: cerca de %{count} horas
+      about_x_months:
+        one: cerca de 1 mes
+        other: cerca de %{count} meses
+      about_x_years:
+        one: cerca de 1 año
+        other: cerca de %{count} años
+      almost_x_years:
+        one: casi 1 año
+        other: casi %{count} años
+      half_a_minute: medio minuto
+      less_than_x_minutes:
+        one: menos de 1 minuto
+        other: menos de %{count} minutos
+      less_than_x_seconds:
+        one: menos de 1 segundo
+        other: menos de %{count} segundos
+      over_x_years:
+        one: más de 1 año
+        other: más de %{count} años
+      x_days:
+        one: 1 día
+        other: "%{count} días"
+      x_minutes:
+        one: 1 minuto
+        other: "%{count} minutos"
+      x_months:
+        one: 1 mes
+        other: "%{count} meses"
+      x_seconds:
+        one: 1 segundo
+        other: "%{count} segundos"
+    prompts:
+      day: Día
+      hour: Hora
+      minute: Minuto
+      month: Mes
+      second: Segundos
+      year: Año
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      accepted: debe ser aceptado
+      blank: no puede estar en blanco
+      present: debe estar en blanco
+      confirmation: no coincide
+      empty: no puede estar vacío
+      equal_to: debe ser igual a %{count}
+      even: debe ser un número par
+      exclusion: está reservado
+      greater_than: debe ser mayor que %{count}
+      greater_than_or_equal_to: debe ser mayor o igual que %{count}
+      inclusion: no está incluido en la lista
+      invalid: es inválido
+      less_than: debe ser menor que %{count}
+      less_than_or_equal_to: debe ser menor o igual que %{count}
+      not_a_number: no es un número
+      not_an_integer: debe ser un entero
+      odd: debe ser un número non
+      record_invalid: 'La validación falló: %{errors}'
+      restrict_dependent_destroy:
+        one: El registro no puede ser eliminado pues existe un %{record} dependiente
+        many: El registro no puede ser eliminado pues existen %{record} dependientes
+      taken: ya ha sido tomado
+      too_long:
+        one: es demasiado largo (máximo 1 caracter)
+        other: es demasiado largo (máximo %{count} caracteres)
+      too_short:
+        one: es demasiado corto (mínimo 1 caracter)
+        other: es demasiado corto (mínimo %{count} caracteres)
+      wrong_length:
+        one: longitud errónea (debe ser de 1 caracter)
+        other: longitud errónea (debe ser de %{count} caracteres)
+      other_than: debe ser diferente a %{count}
+    template:
+      body: 'Revise que los siguientes campos sean válidos:'
+      header:
+        one: "%{model} no pudo guardarse debido a 1 error"
+        other: "%{model} no pudo guardarse debido a %{count} errores"
+  helpers:
+    select:
+      prompt: Por favor selecciona
+    submit:
+      create: Crear %{model}
+      submit: Guardar %{model}
+      update: Actualizar %{model}
+  number:
+    currency:
+      format:
+        delimiter: ","
+        format: "%u%n"
+        precision: 2
+        separator: "."
+        significant: false
+        strip_insignificant_zeros: false
+        unit: "$"
+    format:
+      delimiter: ","
+      precision: 2
+      separator: "."
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: "%n %u"
+        units:
+          billion: mil millones
+          million: millón
+          quadrillion: mil billones
+          thousand: mil
+          trillion: billón
+          unit: ''
+      format:
+        delimiter: ","
+        precision: 3
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: Byte
+            other: Bytes
+          gb: GB
+          kb: KB
+          mb: MB
+          tb: TB
+    percentage:
+      format:
+        delimiter: ","
+        format: "%n%"
+    precision:
+      format:
+        delimiter: ","
+  support:
+    array:
+      last_word_connector: " y "
+      two_words_connector: " y "
+      words_connector: ", "
+  time:
+    am: am
+    formats:
+      default: "%a, %b %d, %Y a las %H:%M:%S %Z"
+      long: "%A, %B %d, %Y a las %I:%M %p"
+      short: "%b %d a las %H:%M hrs"
+    pm: pm

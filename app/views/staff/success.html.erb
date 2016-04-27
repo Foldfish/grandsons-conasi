@@ -1,0 +1,18 @@
+
+<head>
+  <%= stylesheet_link_tag 'staff' %>
+</head>
+
+<div class="grandsons-logo"><%= image_tag "grandsons_logo_small.jpg" %></div>
+
+<div class="staff-content">
+
+<div class="navigation_links"><span class="bold">Navegación:</span> <%= link_to 'Inicio', search_path %> / Datos guardados</div>
+  <h1 class ="title">¡Éxito!</h1>
+  <div id="logout_button"><%= button_to 'Salir', destroy_user_session_path, :method => :delete %></div>
+
+  <div class="content">
+    <p text-size=30px>Se ha registrado la información exitosamente.</p>
+    <p><%= link_to 'Continuar', search_path %></p>
+  </div>
+</div>

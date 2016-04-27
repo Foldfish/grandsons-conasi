@@ -11,10 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160423075927) do
+ActiveRecord::Schema.define(version: 20160423065647) do
 
   create_table "attendance_records", force: :cascade do |t|
-    t.integer  "demo_staff_member_id"
     t.date     "start_of_week"
     t.integer  "monday_store_id"
     t.integer  "tuesday_store_id"
@@ -23,9 +22,19 @@ ActiveRecord::Schema.define(version: 20160423075927) do
     t.integer  "friday_store_id"
     t.integer  "saturday_store_id"
     t.integer  "sunday_store_id"
+    t.integer  "demo_staff_member_id"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
   end
+
+  add_index "attendance_records", ["demo_staff_member_id"], name: "index_attendance_records_on_demo_staff_member_id"
+  add_index "attendance_records", ["friday_store_id"], name: "index_attendance_records_on_friday_store_id"
+  add_index "attendance_records", ["monday_store_id"], name: "index_attendance_records_on_monday_store_id"
+  add_index "attendance_records", ["saturday_store_id"], name: "index_attendance_records_on_saturday_store_id"
+  add_index "attendance_records", ["sunday_store_id"], name: "index_attendance_records_on_sunday_store_id"
+  add_index "attendance_records", ["thursday_store_id"], name: "index_attendance_records_on_thursday_store_id"
+  add_index "attendance_records", ["tuesday_store_id"], name: "index_attendance_records_on_tuesday_store_id"
+  add_index "attendance_records", ["wednesday_store_id"], name: "index_attendance_records_on_wednesday_store_id"
 
   create_table "chains", force: :cascade do |t|
     t.string   "name"
@@ -35,9 +44,20 @@ ActiveRecord::Schema.define(version: 20160423075927) do
 
   create_table "customers", force: :cascade do |t|
     t.string   "name"
+    t.string   "contact"
+    t.string   "email"
+    t.string   "phone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "customers_stores", id: false, force: :cascade do |t|
+    t.integer "customer_id"
+    t.integer "store_id"
+  end
+
+  add_index "customers_stores", ["customer_id"], name: "index_customers_stores_on_customer_id"
+  add_index "customers_stores", ["store_id"], name: "index_customers_stores_on_store_id"
 
   create_table "demo_staff_members", force: :cascade do |t|
     t.string   "name"
@@ -79,6 +99,7 @@ ActiveRecord::Schema.define(version: 20160423075927) do
   add_index "roles", ["name"], name: "index_roles_on_name"
 
   create_table "stores", force: :cascade do |t|
+    t.string   "store_key"
     t.string   "name"
     t.string   "address"
     t.integer  "chain_id"
@@ -86,13 +107,7 @@ ActiveRecord::Schema.define(version: 20160423075927) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "stores_customers", id: false, force: :cascade do |t|
-    t.integer "store_id"
-    t.integer "customer_id"
-  end
-
-  add_index "stores_customers", ["customer_id"], name: "index_stores_customers_on_customer_id"
-  add_index "stores_customers", ["store_id"], name: "index_stores_customers_on_store_id"
+  add_index "stores", ["chain_id"], name: "index_stores_on_chain_id"
 
   create_table "supervisors", force: :cascade do |t|
     t.string   "name"
@@ -102,6 +117,8 @@ ActiveRecord::Schema.define(version: 20160423075927) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "supervisors", ["store_id"], name: "index_supervisors_on_store_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

@@ -1,0 +1,57 @@
+
+<head>
+  <%= stylesheet_link_tag 'staff' %>
+</head>
+
+<div class="grandsons-logo"><%= image_tag "grandsons_logo_small.jpg" %></div>
+
+<div class="staff-content">
+
+  <div class="navigation_links"><span class="bold">Navegación:</span> <%= link_to 'Inicio', search_path %> / Resultados de búsqueda</div>
+  <h1 class ="title">Registro de asistencia para <%= params[:staff_member_name] %></h1>
+  <div id="logout_button"><%= button_to 'Salir', destroy_user_session_path, :method => :delete %></div>
+
+  <div class="content">
+    <%= form_tag url_for(:controller => :staff, :action => :post_or_update_attendance_records, :staff_member => @staff_member), :method => :put do %>
+    <table class="tables">
+      <thead>
+        <tr>
+          <th>Semana del <%= @start_of_week_front %></th>
+          <th>Tienda</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr>
+            <td align="center">Lunes</td>
+            <td align="center"><%= select_tag("monday", options_for_select(@formatted_store_array, @current_values[0]))%></td>
+          </tr>
+          <tr>
+            <td align="center">Martes</td>
+            <td align="center"><%= select_tag("tuesday", options_for_select(@formatted_store_array, @current_values[1]))%></td>
+          </tr>
+          <tr>
+            <td align="center">Miércoles</td>
+            <td align="center"><%= select_tag("wednesday", options_for_select(@formatted_store_array, @current_values[2]))%></td>
+          </tr>
+          <tr>
+            <td align="center">Jueves</td>
+            <td align="center"><%= select_tag("thursday", options_for_select(@formatted_store_array, @current_values[3]))%></td>
+          </tr>
+          <tr>
+            <td align="center">Viernes</td>
+            <td align="center"><%= select_tag("friday", options_for_select(@formatted_store_array, @current_values[4]))%></td>
+          </tr>
+          <tr>
+            <td align="center">Sábado</td>
+            <td align="center"><%= select_tag("saturday", options_for_select(@formatted_store_array, @current_values[5]))%></td>
+          </tr>
+          <tr>
+            <td align="center">Domingo</td>
+            <td align="center"><%= select_tag("sunday", options_for_select(@formatted_store_array, @current_values[6]))%></td>
+          </tr>
+      </tbody>
+    </table>
+    <div class="save-button"><%= submit_tag 'Guardar información' %></div>
+    <% end %>
+  </div>
+</div>

@@ -9,7 +9,7 @@ class AttendanceRecord < ActiveRecord::Base
   belongs_to :sunday_store,     :class_name => 'Store'
 
   def attendance_record_label_method
-    "#{self.demo_staff_member}(#{self.start_of_week})"
+    "#{self.demo_staff_member.name} (#{self.start_of_week})"
   end
 
   rails_admin do
@@ -53,9 +53,10 @@ class AttendanceRecord < ActiveRecord::Base
         help "Por favor llena este campo."
   	  end
       field :start_of_week do
-        required true
-        help "Por favor llena este campo."
-  	  end
+	strftime_format do
+	  '%d-%m-%Y %H:%M:%S'
+	end
+      end
       field :monday_store do
       	required true
         help "Por favor llena este campo."

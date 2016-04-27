@@ -1,6 +1,7 @@
 class CreateStores < ActiveRecord::Migration
   def change
     create_table :stores do |t|
+      t.string :store_key
       t.string :name
       t.string :address
 

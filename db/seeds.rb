@@ -1,11 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
 puts 'Creando roles'
 ["admin", "user"].each do |role|
     Role.create(name: role)
@@ -16,3 +8,35 @@ puts "Creando cuenta de Administrador"
 first_user = User.create(email: ENV["ADMIN_EMAIL"].dup, password: ENV["ADMIN_PASSWORD"].dup, password_confirmation: ENV["ADMIN_PASSWORD"].dup)
 puts "Usuario: " << first_user.email
 first_user.add_role :admin
+
+puts "Creando cuenta de Administrador"
+second_user = User.create(email: ENV["USER_EMAIL"].dup, password: ENV["USER_PASSWORD"].dup, password_confirmation: ENV["USER_PASSWORD"].dup)
+puts "Usuario: " << second_user.email
+second_user.add_role :user
+
+AttendanceRecord.create!([
+  {start_of_week: "2016-04-27", monday_store_id: 2, tuesday_store_id: 2, wednesday_store_id: 3, thursday_store_id: 2, friday_store_id: 1, saturday_store_id: 2, sunday_store_id: 1, demo_staff_member_id: 1}
+])
+Chain.create!([
+  {name: "Grupo Walton"},
+  {name: "Grupo Carso"},
+  {name: "Suplente"}
+])
+Customer.create!([
+  {name: "ITESM CEM", contact: "Ariel Ortiz Ramírez", email: "aortiz@itesm.mx", phone: "5512369874"},
+  {name: "Microsoft", contact: "John Smith", email: "j.smith@microsoft.com", phone: "1234678954"}
+])
+DemoStaffMember.create!([
+  {name: "Víctor Colín Amador", phone: "5517027661", RFC: "COAV920612A8", CURP: "COAV920612HDFLMC07", NSS: "152350979156"},
+  {name: "Carlos Alvarado Vargas", phone: "5512368452", RFC: "ALVC951307HJ8", CURP: "ALVC951307HDFGSD08", NSS: "451236875632"},
+  {name: "Víctor Jara Jiménez", phone: "5517562314", RFC: "JAJV891205", CURP: "JAJV891205HDFLMC07", NSS: "651964035418"}
+])
+Store.create!([
+  {store_key: "1241245", name: "Walmart", address: "Lago Superior 127", chain_id: 1},
+  {store_key: "2356787", name: "Telmex", address: "Montes Urales 15", chain_id: 2},
+  {store_key: "0000000", name: "Suplente", address: "0000000", chain_id: 3}
+])
+Supervisor.create!([
+  {name: "Jorge Sánchez Fernández", phone: "5512638495", RFC: "SAFJ860412L9F", store_id: 1},
+  {name: "Jimena Suárez Reyes", phone: "5513697845", RFC: "SURJ921209", store_id: 2}
+])

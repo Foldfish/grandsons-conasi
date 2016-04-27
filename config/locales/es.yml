@@ -181,6 +181,9 @@ es:
         name: "Nombre"
       customer:
         name: "Nombre"
+        contact: "Contacto"
+        email: "Correo electrónico"
+        phone: "Teléfono"
       demo_staff_member:
         name: "Nombre"
         phone: "Teléfono"
@@ -188,6 +191,7 @@ es:
         CURP: "CURP"
         NSS: "Número del seguridad social"
       store:
+        store_key: "Clave de la tienda"
         name: "Nombre"
         address: "Dirección"
         chain: "Cadena a la que pertenece"

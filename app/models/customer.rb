@@ -12,12 +12,27 @@ class Customer < ActiveRecord::Base
 
     list do
       field :name
+      field :contact
+      field :email
+      field :phone
     end
 
   	edit do
   	  field :name do
   	  	required true
-        help "Por favor llena este campo."
+	        help "Por favor llena este campo."
+  	  end
+  	  field :contact do
+  	  	required true
+	        help "Por favor llena este campo."
+  	  end
+  	  field :email do
+  	  	required true
+	        help "Por favor llena este campo."
+  	  end
+  	  field :phone do
+  	  	required true
+	        help "Por favor llena este campo."
   	  end
   	end
   end

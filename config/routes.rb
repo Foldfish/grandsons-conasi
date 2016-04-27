@@ -19,6 +19,15 @@ Rails.application.routes.draw do
     
   end
 
+  get '/personal/registros', to: 'staff#record_info', as: 'record_info'
+  get '/personal/resultados', to: 'staff#results', as: 'results'
+  get '/personal/buscar', to: 'staff#search', as: 'search'
+  get '/personal/exito', to: 'staff#success', as: 'success'
+
+  resources :staff do
+    put :post_or_update_attendance_records, :on => :collection
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

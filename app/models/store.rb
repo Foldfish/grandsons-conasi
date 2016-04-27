@@ -20,21 +20,26 @@ class Store < ActiveRecord::Base
     end
 
     list do
+      field :store_key
       field :name
       field :address
       field :chain
     end
 
-  	edit do
-  	  field :name do
-  	  	required true
+    edit do
+      field :store_key do
+     	required true
         help "Por favor llena este campo."
-  	  end
-  	  field :address
-  	  field :chain do
-  	  	required true
-  	  	help "Por favor llena este campo."
       end
-  	end
+      field :name do
+     	required true
+        help "Por favor llena este campo."
+      end
+      field :address
+      field :chain do
+     	required true
+    	help "Por favor llena este campo."
+      end
+    end
   end
 end

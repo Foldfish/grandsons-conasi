@@ -9,7 +9,11 @@ class AttendanceRecord < ActiveRecord::Base
   belongs_to :sunday_store,     :class_name => 'Store'
 
   def attendance_record_label_method
-    "#{self.demo_staff_member.name} (#{self.start_of_week})"
+    if self.demo_staff_member.nil?
+      "Attendance Record"
+    else
+      "#{self.demo_staff_member.name} (#{self.start_of_week})"
+    end
   end
 
   rails_admin do

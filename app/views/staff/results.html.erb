@@ -17,7 +17,7 @@
         <tr>
           <th>Nombre</th>
           <th>Teléfono</th>
-          <th>CURP</th>
+          <th width="250px">CURP</th>
           <th>RFC</th>
           <th>Número de seguro social</th>
           <th>Control de asistencia</th>
@@ -29,8 +29,8 @@
           <tr>
             <td align="center"><%= result.name %></td>
             <td align="center"><%= result.phone %></td>
-            <td align="center"><%= result.RFC %></td>
             <td align="center"><%= result.CURP %></td>
+            <td align="center"><%= result.RFC %></td>
             <td align="center"><%= result.NSS %></td>
 	    <td align="center"><%= link_to 'Ingresar datos', record_info_path(:staff_member_name => result.name) %></td>
 	<% end %>

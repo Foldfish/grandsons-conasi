@@ -6,16 +6,16 @@ class StaffController < ApplicationController
     @start_of_week_front = today.at_beginning_of_week.strftime("%d-%m-%Y")
     @current_values = []
     current_attendance_record = AttendanceRecord.where(demo_staff_member: DemoStaffMember.find_by(name: params[:staff_member_name]),
-							  start_of_week: today.at_beginning_of_week)
+							  start_of_week: today.at_beginning_of_week)[0]
 
     if !current_attendance_record.nil?
-      @current_values << [current_attendance_record[0].monday_store, current_attendance_record[0].monday_store.id]
-      @current_values << [current_attendance_record[0].tuesday_store, current_attendance_record[0].tuesday_store.id]
-      @current_values << [current_attendance_record[0].wednesday_store, current_attendance_record[0].wednesday_store.id]
-      @current_values << [current_attendance_record[0].thursday_store, current_attendance_record[0].thursday_store.id]
-      @current_values << [current_attendance_record[0].friday_store, current_attendance_record[0].friday_store.id]
-      @current_values << [current_attendance_record[0].saturday_store, current_attendance_record[0].saturday_store.id]
-      @current_values << [current_attendance_record[0].sunday_store, current_attendance_record[0].sunday_store.id]
+      @current_values << [current_attendance_record.monday_store, current_attendance_record.monday_store.id]
+      @current_values << [current_attendance_record.tuesday_store, current_attendance_record.tuesday_store.id]
+      @current_values << [current_attendance_record.wednesday_store, current_attendance_record.wednesday_store.id]
+      @current_values << [current_attendance_record.thursday_store, current_attendance_record.thursday_store.id]
+      @current_values << [current_attendance_record.friday_store, current_attendance_record.friday_store.id]
+      @current_values << [current_attendance_record.saturday_store, current_attendance_record.saturday_store.id]
+      @current_values << [current_attendance_record.sunday_store, current_attendance_record.sunday_store.id]
     else
       for i in 0..6
         @current_values << ["Suplente", Store.find_by(name: "Suplente").id]
@@ -32,7 +32,10 @@ class StaffController < ApplicationController
     def post_or_update_attendance_records
       today = Date.today
       start_of_week = today.at_beginning_of_week.strftime("%d-%m-%Y %H:%M:%S")
-      AttendanceRecord.where(demo_staff_member: DemoStaffMember.where(params[:staff_member]), start_of_week: today.at_beginning_of_week)[0].destroy
+      previous_record = AttendanceRecord.where(demo_staff_member: DemoStaffMember.where(params[:staff_member]), start_of_week: today.at_beginning_of_week)[0]
+      if !previous_record.nil?
+        previous_record.destroy
+      end
       AttendanceRecord.find_or_create_by(demo_staff_member: DemoStaffMember.find(params[:staff_member]),
 					 start_of_week: start_of_week,
                                          monday_store: Store.find_by(id: params[:monday]),

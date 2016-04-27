@@ -15,7 +15,7 @@ puts "Usuario: " << second_user.email
 second_user.add_role :user
 
 AttendanceRecord.create!([
-  {start_of_week: "2016-04-27", monday_store_id: 2, tuesday_store_id: 2, wednesday_store_id: 3, thursday_store_id: 2, friday_store_id: 1, saturday_store_id: 2, sunday_store_id: 1, demo_staff_member_id: 1}
+  {start_of_week: "2016-04-25", monday_store_id: 2, tuesday_store_id: 2, wednesday_store_id: 3, thursday_store_id: 2, friday_store_id: 1, saturday_store_id: 2, sunday_store_id: 1, demo_staff_member_id: 1}
 ])
 Chain.create!([
   {name: "Grupo Walton"},

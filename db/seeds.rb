@@ -15,12 +15,12 @@ puts "Usuario: " << second_user.email
 second_user.add_role :user
 
 AttendanceRecord.create!([
-  {start_of_week: "2016-04-25", monday_store_id: 2, tuesday_store_id: 2, wednesday_store_id: 3, thursday_store_id: 2, friday_store_id: 1, saturday_store_id: 2, sunday_store_id: 1, demo_staff_member_id: 1}
+  {start_of_week: "2016-04-25", monday_store_id: 3, tuesday_store_id: 3, wednesday_store_id: 1, thursday_store_id: 3, friday_store_id: 2, saturday_store_id: 3, sunday_store_id: 2, demo_staff_member_id: 2}
 ])
 Chain.create!([
+  {name: "Suplente"},
   {name: "Grupo Walton"},
-  {name: "Grupo Carso"},
-  {name: "Suplente"}
+  {name: "Grupo Carso"}
 ])
 Customer.create!([
   {name: "ITESM CEM", contact: "Ariel Ortiz Ramírez", email: "aortiz@itesm.mx", phone: "5512369874"},
@@ -32,11 +32,11 @@ DemoStaffMember.create!([
   {name: "Víctor Jara Jiménez", phone: "5517562314", RFC: "JAJV891205", CURP: "JAJV891205HDFLMC07", NSS: "651964035418"}
 ])
 Store.create!([
-  {store_key: "1241245", name: "Walmart", address: "Lago Superior 127", chain_id: 1},
-  {store_key: "2356787", name: "Telmex", address: "Montes Urales 15", chain_id: 2},
-  {store_key: "0000000", name: "Suplente", address: "0000000", chain_id: 3}
+  {store_key: "0000000", name: "Sin tienda (se usó suplente)", address: "Sin dirección", chain_id: 1},
+  {store_key: "1241245", name: "Walmart", address: "Lago Superior 127", chain_id: 2},
+  {store_key: "2356787", name: "Telmex", address: "Montes Urales 15", chain_id: 3}
 ])
 Supervisor.create!([
-  {name: "Jorge Sánchez Fernández", phone: "5512638495", RFC: "SAFJ860412L9F", store_id: 1},
-  {name: "Jimena Suárez Reyes", phone: "5513697845", RFC: "SURJ921209", store_id: 2}
+  {name: "Jorge Sánchez Fernández", phone: "5512638495", RFC: "SAFJ860412L9F", store_id: 2},
+  {name: "Jimena Suárez Reyes", phone: "5513697845", RFC: "SURJ921209", store_id: 3}
 ])

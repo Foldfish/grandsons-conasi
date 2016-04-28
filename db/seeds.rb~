@@ -9,7 +9,7 @@ first_user = User.create(email: ENV["ADMIN_EMAIL"].dup, password: ENV["ADMIN_PAS
 puts "Usuario: " << first_user.email
 first_user.add_role :admin
 
-puts "Creando cuenta de Usuario"
+puts "Creando cuenta de Administrador"
 second_user = User.create(email: ENV["USER_EMAIL"].dup, password: ENV["USER_PASSWORD"].dup, password_confirmation: ENV["USER_PASSWORD"].dup)
 puts "Usuario: " << second_user.email
 second_user.add_role :user

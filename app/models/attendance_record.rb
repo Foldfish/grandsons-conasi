@@ -51,44 +51,70 @@ class AttendanceRecord < ActiveRecord::Base
       end
     end
 
-  	edit do
-  	  field :demo_staff_member do
-  	    required true
+    edit do
+      field :demo_staff_member do
+        required true
         help "Por favor llena este campo."
-  	  end
+      end
       field :start_of_week do
+	default_value do
+	  Date.today.at_beginning_of_week.strftime("%d-%m-%Y %H:%M:%S")
+        end
 	strftime_format do
 	  '%d-%m-%Y %H:%M:%S'
 	end
+      	required true
+        help "Por favor llena este campo."
       end
       field :monday_store do
+        default_value do
+          1
+        end
       	required true
         help "Por favor llena este campo."
-  	  end
+      end
       field :tuesday_store do
+	default_value do
+          1
+        end
       	required true
         help "Por favor llena este campo."
-  	  end
+      end
       field :wednesday_store do
+	default_value do
+          1
+        end
       	required true
         help "Por favor llena este campo."
-  	  end
+      end
       field :thursday_store do
+	default_value do
+          1
+        end
       	required true
         help "Por favor llena este campo."
-  	  end
+      end
       field :friday_store do
+	default_value do
+          1
+        end
       	required true
         help "Por favor llena este campo."
-  	  end
+      end
       field :saturday_store do
+	default_value do
+          1
+        end
       	required true
         help "Por favor llena este campo."
-  	  end
+      end
       field :sunday_store do
+	default_value do
+          1
+        end
       	required true
         help "Por favor llena este campo."
-  	  end
-  	end
+      end
+    end
   end
 end

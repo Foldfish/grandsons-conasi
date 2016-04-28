@@ -18,7 +18,7 @@ class StaffController < ApplicationController
       @current_values << [current_attendance_record.sunday_store, current_attendance_record.sunday_store.id]
     else
       for i in 0..6
-        @current_values << ["Sin tienda (se usó suplente)", Store.find_by(name: "Sin tienda (se usó suplente)").id]
+        @current_values << ["Registro pendiente", Store.find_by(name: "Registro pendiente").id]
       end
     end
 

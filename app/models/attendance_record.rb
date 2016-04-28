@@ -64,7 +64,7 @@ class AttendanceRecord < ActiveRecord::Base
 	  '%d-%m-%Y %H:%M:%S'
 	end
       	required true
-        help "Por favor llena este campo."
+        help "Por favor llena este campo. SÓLO USAR FECHAS QUE SEAN DÍA LUNES."
       end
       field :monday_store do
         default_value do

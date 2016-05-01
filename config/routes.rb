@@ -1,11 +1,4 @@
 Rails.application.routes.draw do
-
-  resources :attendance_records
-  resources :demo_staff_members
-  resources :supervisors
-  resources :stores
-  resources :chains
-  resources :customers
   
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   

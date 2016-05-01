@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: supervisors
+#
+#  id         :integer          not null, primary key
+#  name       :string
+#  phone      :string
+#  RFC        :string
+#  store_id   :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class Supervisor < ActiveRecord::Base
   belongs_to :store, :inverse_of => :supervisor
 

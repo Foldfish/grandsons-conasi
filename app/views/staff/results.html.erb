@@ -25,20 +25,21 @@
       </thead>
 	
       <tbody>
-	<% @results.each do |result| %>
+	     <% @results.each do |result| %>
           <tr>
             <td align="center"><%= result.name %></td>
             <td align="center"><%= result.phone %></td>
             <td align="center"><%= result.CURP %></td>
             <td align="center"><%= result.RFC %></td>
             <td align="center"><%= result.NSS %></td>
-	    <td align="center"><%= link_to 'Ingresar datos', record_info_path(:staff_member_name => result.name) %></td>
-	<% end %>
+	          <td align="center"><%= link_to 'Ingresar datos', record_info_path(:staff_member_name => result.name) %></td>
+          </tr>
+	     <% end %>
       </tbody>
     </table>
     <% if @results.empty? %>
-    <h1></h1>
-    <h2>No se encontraron resultados</h2>
+      <h1></h1>
+      <h2>No se encontraron resultados</h2>
     <% end %>
   </div>
 </div>

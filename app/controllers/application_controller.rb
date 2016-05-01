@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
     unless current_user.roles.first.nil?
       case current_user.roles.first.name
         when "admin"
-	  rails_admin_path
+	        rails_admin_path
         when "user"
           search_path
       end

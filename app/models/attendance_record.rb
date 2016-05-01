@@ -1,3 +1,21 @@
+# == Schema Information
+#
+# Table name: attendance_records
+#
+#  id                   :integer          not null, primary key
+#  start_of_week        :date
+#  monday_store_id      :integer
+#  tuesday_store_id     :integer
+#  wednesday_store_id   :integer
+#  thursday_store_id    :integer
+#  friday_store_id      :integer
+#  saturday_store_id    :integer
+#  sunday_store_id      :integer
+#  demo_staff_member_id :integer
+#  created_at           :datetime         not null
+#  updated_at           :datetime         not null
+#
+
 class AttendanceRecord < ActiveRecord::Base
   belongs_to :demo_staff_member, :inverse_of => :attendance_records
   belongs_to :monday_store,     :class_name => 'Store'
@@ -57,14 +75,14 @@ class AttendanceRecord < ActiveRecord::Base
         help "Por favor llena este campo."
       end
       field :start_of_week do
-	default_value do
-	  Date.today.at_beginning_of_week.strftime("%d-%m-%Y %H:%M:%S")
+      	default_value do
+      	  Date.today.at_beginning_of_week
         end
-	strftime_format do
-	  '%d-%m-%Y %H:%M:%S'
-	end
+      	strftime_format do
+      	  '%d-%m-%Y %H:%M:%S'
+      	end
       	required true
-        help "Por favor llena este campo. SÓLO USAR FECHAS QUE SEAN DÍA LUNES."
+        help "Por favor llena este campo. Sólo usar fechas que sean día LUNES."
       end
       field :monday_store do
         default_value do

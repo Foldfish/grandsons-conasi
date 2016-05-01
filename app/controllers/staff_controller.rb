@@ -37,14 +37,14 @@ class StaffController < ApplicationController
         previous_record.destroy
       end
       AttendanceRecord.find_or_create_by(demo_staff_member: DemoStaffMember.find(params[:staff_member]),
-					 start_of_week: start_of_week,
+                                         start_of_week: start_of_week,
                                          monday_store: Store.find_by(id: params[:monday]),
-					 tuesday_store: Store.find_by(id: params[:tuesday]),
-					 wednesday_store: Store.find_by(id: params[:wednesday]),
-					 thursday_store: Store.find_by(id: params[:thursday]),
-					 friday_store: Store.find_by(id: params[:friday]),
-					 saturday_store: Store.find_by(id: params[:saturday]),
-					 sunday_store: Store.find_by(id: params[:sunday]))
+					                               tuesday_store: Store.find_by(id: params[:tuesday]),
+					                               wednesday_store: Store.find_by(id: params[:wednesday]),
+					                               thursday_store: Store.find_by(id: params[:thursday]),
+					                               friday_store: Store.find_by(id: params[:friday]),
+					                               saturday_store: Store.find_by(id: params[:saturday]),
+					                               sunday_store: Store.find_by(id: params[:sunday]))
       redirect_to(success_path) and return
     end
   end
@@ -54,6 +54,9 @@ class StaffController < ApplicationController
   end
 
   def search
+  end
+
+  def success
   end
 
 end

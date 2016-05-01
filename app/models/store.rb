@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: stores
+#
+#  id         :integer          not null, primary key
+#  store_key  :string
+#  name       :string
+#  address    :string
+#  chain_id   :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class Store < ActiveRecord::Base
   has_one :supervisor
   has_many :monday_records, :class_name => 'AttendanceRecord', :foreign_key => 'monday_store_id'

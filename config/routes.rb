@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     
   end
 
+  get '/elegir_rol', to: 'staff#multiple_roles', as: 'multiple_roles'
+
   get '/personal/registros', to: 'staff#record_info', as: 'record_info'
   
   resources :staff do

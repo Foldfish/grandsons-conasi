@@ -15,26 +15,26 @@ class StaffController < ApplicationController
 
     @all_attendance_values = Hash.new
 
-    results.each do |current_result|
-      current_result_attendance_values = []
-      current_attendance_record = AttendanceRecord.where(demo_staff_member: current_result,
+    @staff_members.each do |current_staff_member|
+      current_staff_member_attendance_values = []
+      current_attendance_record = AttendanceRecord.where(demo_staff_member: current_staff_member,
   							  start_of_week: today.at_beginning_of_week)[0]
 
       if !current_attendance_record.nil?
-        current_result_attendance_values << [current_attendance_record.monday_store, current_attendance_record.monday_store.id]
-        current_result_attendance_values << [current_attendance_record.tuesday_store, current_attendance_record.tuesday_store.id]
-        current_result_attendance_values << [current_attendance_record.wednesday_store, current_attendance_record.wednesday_store.id]
-        current_result_attendance_values << [current_attendance_record.thursday_store, current_attendance_record.thursday_store.id]
-        current_result_attendance_values << [current_attendance_record.friday_store, current_attendance_record.friday_store.id]
-        current_result_attendance_values << [current_attendance_record.saturday_store, current_attendance_record.saturday_store.id]
-        current_result_attendance_values << [current_attendance_record.sunday_store, current_attendance_record.sunday_store.id]
+        current_staff_member_attendance_values << [current_attendance_record.monday_store, current_attendance_record.monday_store.id]
+        current_staff_member_attendance_values << [current_attendance_record.tuesday_store, current_attendance_record.tuesday_store.id]
+        current_staff_member_attendance_values << [current_attendance_record.wednesday_store, current_attendance_record.wednesday_store.id]
+        current_staff_member_attendance_values << [current_attendance_record.thursday_store, current_attendance_record.thursday_store.id]
+        current_staff_member_attendance_values << [current_attendance_record.friday_store, current_attendance_record.friday_store.id]
+        current_staff_member_attendance_values << [current_attendance_record.saturday_store, current_attendance_record.saturday_store.id]
+        current_staff_member_attendance_values << [current_attendance_record.sunday_store, current_attendance_record.sunday_store.id]
       else
         for i in 0..6
-          current_result_attendance_values << ["Pendiente", Store.find_by(name: "Pendiente").id]
+          current_staff_member_attendance_values << ["Pendiente", Store.find_by(name: "Pendiente").id]
         end
       end
 
-      @all_attendance_values[current_result.id] = current_result_attendance_values
+      @all_attendance_values[current_staff_member.id] = current_staff_member_attendance_values
     end
 
     def post_or_update_attendance_records
@@ -63,14 +63,7 @@ class StaffController < ApplicationController
     end
   end
 
-  def results
-    @results = DemoStaffMember.where('name LIKE ?', "%#{params[:search_term]}%")
+  def multiple_roles
+    @roles = current_user.roles
   end
-
-  def search
-  end
-
-  def success
-  end
-
 end

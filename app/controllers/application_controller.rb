@@ -9,11 +9,15 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
     unless current_user.roles.first.nil?
-      case current_user.roles.first.name
-        when "admin"
-	        rails_admin_path
-        when "user"
-          record_info_path
+      if current_user.roles.count > 1
+        multiple_roles_path
+      else
+        case current_user.roles.first.name
+          when "admin"
+  	        rails_admin_path
+          when "user"
+            record_info_path
+        end
       end
     else
       root_path

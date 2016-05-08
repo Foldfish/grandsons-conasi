@@ -1,0 +1,25 @@
+<head>
+  <%= stylesheet_link_tag 'staff' %>
+</head>
+
+<div class="grandsons-logo"><%= image_tag "grandsons_logo_small.jpg" %></div>
+
+<div class="roles-content">
+
+  <h1 class="roles-title">¿Cómo desea actuar durante esta sesión?</h1>
+  <div id="roles_logout_button"><%= button_to 'Salir', destroy_user_session_path, :method => :delete %></div>
+
+  <div class="roles-list">
+	<ul>
+	  <% @roles.each do |current_role| %>
+		<% case current_role.name %>
+	      <% when "admin" %>
+	        <li><%= button_to "Administrador", rails_admin_path, :method => :get %><br/></li>
+	      <% when "user" %>
+	        <li><%= button_to "Usuario normal", record_info_path, :method => :get %><br/></li>
+	    <% end %>
+	  <% end %>
+	</ul>
+  </div>
+
+</div>

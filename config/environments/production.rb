@@ -18,13 +18,13 @@ Rails.application.configure do
   config.action_mailer.default_url_options = {:host => 'https://grandsons-conasi.herokuapp.com'}
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: "smtp.gmail.com",
+    address: "smtp-mail.outlook.com",
     port: "587",
-    domain: "gmail.com",
+    domain: "outlook.com",
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: "sistema.de.evaluaciones.amte@gmail.com",
-    password: "AMTEmailer1"
+    user_name: "grandsons.conasi@outlook.com",
+    password: "recuperacion14"
   }
 
   # Enable Rack::Cache to put a simple HTTP cache in front of your application

@@ -30,7 +30,7 @@ class AttendanceRecord < ActiveRecord::Base
     if self.demo_staff_member.nil?
       "Attendance Record"
     else
-      "#{self.demo_staff_member.name} (#{self.start_of_week})"
+      "#{self.demo_staff_member.name} (#{self.start_of_week.strftime('%d-%m-%Y')})"
     end
   end
 
@@ -45,6 +45,9 @@ class AttendanceRecord < ActiveRecord::Base
       end
       field :start_of_week do
         column_width 80
+        strftime_format do
+          '%d-%m-%Y'
+        end
       end
       field :monday_store do
         column_width 150
@@ -79,7 +82,7 @@ class AttendanceRecord < ActiveRecord::Base
       	  Date.today.at_beginning_of_week
         end
       	strftime_format do
-      	  '%d-%m-%Y %H:%M:%S'
+      	  '%d-%m-%Y'
       	end
       	required true
         help "Por favor llena este campo. Sólo usar fechas que sean día LUNES."

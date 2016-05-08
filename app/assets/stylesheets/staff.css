@@ -416,11 +416,12 @@ body #roles_logout_button {
   font-size: 20px; }
 
 .search {
-  width: 70%;
+  float: left;
+  width: 40%;
   border-collapse: separate;
-  padding-top: 5%;
-  padding-left: 30%;
-  font-size: 30px;}
+  margin-top: 5%;
+  margin-left: -42.7%;
+  font-size: 15px;}
 
 .search-button {
   width: 100%;
@@ -428,6 +429,13 @@ body #roles_logout_button {
   padding-top: 3%;
   padding-left: 38%;
   font-size: 20px;}
+
+.search-button-inline {
+  float: right;
+  width: auto;
+  margin-top: 0.1%;
+  margin-right: 51%;
+}
 
 .tables {
   table-layout: fixed;
@@ -437,6 +445,24 @@ body #roles_logout_button {
   border-radius: 3px;
   border-spacing: 0;
   border: 1px solid #ddd; }
+
+.success-message {
+  font-size: 16px;
+  margin-left: 3.5%;
+  margin-bottom: -0.5%;
+  background-color: #ee9532;
+  padding: 10px;
+  color: white;
+  width: 24%; }
+
+.error-message {
+  font-size: 16px;
+  margin-left: 3.5%;
+  margin-bottom: -0.5%;
+  background-color: red;
+  padding: 10px;
+  color: white;
+  width: 25%; }
 
 .tables th {
   text-align: center; }
@@ -560,7 +586,7 @@ body #roles_logout_button {
 .title {
   float: left;
   width: auto;
-  margin: 20px;	 }
+  margin-left: 3.3%;	 }
 
 .small-title {
   float: left;
@@ -580,13 +606,13 @@ header {
   z-index: 5; }
 
 .staff-content {
-  margin: 0em 4em 4em 4em;
-  margin-left: 17.05961%;
+  margin: 0em 4em 0em 4em;
   float: left;
   display: block;
   margin-right: 2.35765%;
-  width: 65.88078%; }
-  .staff-content:last-child {
+  width: 90.88078%; }
+
+.staff-content:last-child {
     margin-right: 0; }
 
 .staff-content-links {
@@ -615,11 +641,12 @@ header {
 .content {
   margin-left: 2.55894%;
   margin-top: 1em;
+  margin-bottom: 1em;
   float: left;
   width: auto;
   #color: #120989;
   overflow-y: auto;
-  height: 550px; }
+  height: 473px; }
 
 .content-details-outer {
   margin-left: 2.55894%;
@@ -631,8 +658,9 @@ header {
   height: 350px; }
 	
 .save-button {
-  padding-top: 10px;
-  text-align: center; }
+  padding-top: 473px; 
+  text-align: center; 
+  font-size: 22px; }
 
 .criterio {
   margin: 20px; }

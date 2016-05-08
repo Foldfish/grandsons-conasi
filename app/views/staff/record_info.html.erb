@@ -1,4 +1,3 @@
-
 <head>
   <%= stylesheet_link_tag 'staff' %>
 </head>
@@ -7,51 +6,71 @@
 
 <div class="staff-content">
 
-  <div class="navigation_links"><span class="bold">Navegación:</span> <%= link_to 'Inicio', search_path %> / Resultados de búsqueda</div>
-  <h1 class ="title">Registro de asistencia para <%= params[:staff_member_name] %></h1>
-  <div id="logout_button"><%= button_to 'Salir', destroy_user_session_path, :method => :delete %></div>
+  <%if params[:saved] %>
+    <p class="success-message">Se ha registrado la información exitosamente.</p>
+  <%elsif !params[:notice].nil? %>
+    <p class="error-message">Por favor seleccione un registro para guardar.</p>
+  <% end %>
 
-  <div class="content">
-    <%= form_tag url_for(:controller => :staff, :action => :post_or_update_attendance_records, :staff_member => @staff_member), :method => :put do %>
-    <table class="tables">
-      <thead>
-        <tr>
-          <th>Semana del <%= @start_of_week_front %></th>
-          <th>Tienda</th>
-        </tr>
-      </thead>
-      <tbody>
-          <tr>
-            <td align="center">Lunes</td>
-            <td align="center"><%= select_tag("monday", options_for_select(@formatted_store_array, @current_values[0]))%></td>
-          </tr>
-          <tr>
-            <td align="center">Martes</td>
-            <td align="center"><%= select_tag("tuesday", options_for_select(@formatted_store_array, @current_values[1]))%></td>
-          </tr>
-          <tr>
-            <td align="center">Miércoles</td>
-            <td align="center"><%= select_tag("wednesday", options_for_select(@formatted_store_array, @current_values[2]))%></td>
-          </tr>
-          <tr>
-            <td align="center">Jueves</td>
-            <td align="center"><%= select_tag("thursday", options_for_select(@formatted_store_array, @current_values[3]))%></td>
-          </tr>
-          <tr>
-            <td align="center">Viernes</td>
-            <td align="center"><%= select_tag("friday", options_for_select(@formatted_store_array, @current_values[4]))%></td>
-          </tr>
-          <tr>
-            <td align="center">Sábado</td>
-            <td align="center"><%= select_tag("saturday", options_for_select(@formatted_store_array, @current_values[5]))%></td>
-          </tr>
-          <tr>
-            <td align="center">Domingo</td>
-            <td align="center"><%= select_tag("sunday", options_for_select(@formatted_store_array, @current_values[6]))%></td>
-          </tr>
-      </tbody>
-    </table>
-    <div class="save-button"><%= submit_tag 'Guardar información' %></div>
-    <% end %>
+  <h1 class ="title">
+    Registro de asistencia para demostradores(as)
+  </h1>
+
+  <div id="logout_button">
+    <%= button_to 'Salir', destroy_user_session_path, :method => :delete %>
   </div>
+
+  <%= form_tag("/personal/registros", method: "get") do %>
+    <div class="search">
+      <%= text_field_tag :search_term, params[:search_term], :placeholder => "Búsqueda por nombre" %>
+    </div>
+
+    <div class="search-button-inline">
+      <%= submit_tag("Buscar") %>
+    </div>
+  <% end %>
+
+  <%= form_tag url_for(:controller => :staff, :action => :post_or_update_attendance_records, :search_term => params[:search_term]), :method => :put do %>
+    <div class="content">    
+      <table class="tables">
+        <thead>
+          <tr>
+            <th width="380px">Info. del demostrador(a)</th>
+            <th>Tienda del lunes</th>
+            <th>Tienda del martes</th>
+            <th>Tienda del miércoles</th>
+            <th>Tienda del jueves</th>
+            <th>Tienda del viernes</th>
+            <th>Tienda del sábado</th>
+            <th>Tienda del domingo</th>
+            <th>Se guardará registro</th>
+          </tr>
+        </thead>
+        <tbody>
+            <% @staff_members.each do |current_staff_member| %>
+              <tr>
+                  <td>
+                    <p><b>Nombre: </b><%= current_staff_member.name %></p>
+                    <p><b>Tel.: </b><%= current_staff_member.phone %></p>
+                    <p><b>CURP: </b><%= current_staff_member.CURP %></p>
+                    <p><b>RFC: </b><%= current_staff_member.RFC %></p>
+                    <b>No. IMSS: </b><%= current_staff_member.NSS %>
+                  </td>
+                  <td align="center"><%= select_tag("monday" + current_staff_member.id.to_s, options_for_select(@formatted_store_array, @all_attendance_values[current_staff_member.id][0]))%></td>
+                  <td align="center"><%= select_tag("tuesday" + current_staff_member.id.to_s, options_for_select(@formatted_store_array, @all_attendance_values[current_staff_member.id][1]))%></td>
+                  <td align="center"><%= select_tag("wednesday" + current_staff_member.id.to_s, options_for_select(@formatted_store_array, @all_attendance_values[current_staff_member.id][2]))%></td>
+                  <td align="center"><%= select_tag("thursday" + current_staff_member.id.to_s, options_for_select(@formatted_store_array, @all_attendance_values[current_staff_member.id][3]))%></td>
+                  <td align="center"><%= select_tag("friday" + current_staff_member.id.to_s, options_for_select(@formatted_store_array, @all_attendance_values[current_staff_member.id][4]))%></td>
+                  <td align="center"><%= select_tag("saturday" + current_staff_member.id.to_s, options_for_select(@formatted_store_array, @all_attendance_values[current_staff_member.id][5]))%></td>
+                  <td align="center"><%= select_tag("sunday" + current_staff_member.id.to_s, options_for_select(@formatted_store_array, @all_attendance_values[current_staff_member.id][6]))%></td>
+                  <td align="center"><%= check_box_tag "current_staff_member_ids[]", current_staff_member.id %></td>
+              </tr>
+            <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="save-button">
+      <%= submit_tag 'Guardar registros' %>
+    </div>
+  <% end %>
 </div>

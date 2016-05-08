@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
         when "admin"
 	        rails_admin_path
         when "user"
-          search_path
+          record_info_path
       end
     else
       root_path

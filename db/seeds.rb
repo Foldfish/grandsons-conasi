@@ -32,7 +32,7 @@ DemoStaffMember.create!([
   {name: "Víctor Jara Jiménez", phone: "5517562314", RFC: "JAJV891205", CURP: "JAJV891205HDFLMC07", NSS: "651964035418"}
 ])
 Store.create!([
-  {store_key: "0000000", name: "Registro pendiente", address: "N/D", chain_id: 1},
+  {store_key: "0000000", name: "Pendiente", address: "N/D", chain_id: 1},
   {store_key: "0000001", name: "Sin tienda (se usó suplente)", address: "N/D", chain_id: 1},
   {store_key: "1241245", name: "Walmart", address: "Lago Superior 127", chain_id: 2},
   {store_key: "2356787", name: "Telmex", address: "Montes Urales 15", chain_id: 3}
